@@ -7,4 +7,3 @@ node {
     step([$class: 'ArtifactArchiver', artifacts: 'JMeter.jtl'])
     sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
     }
-}
