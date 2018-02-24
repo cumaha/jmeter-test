@@ -1,5 +1,6 @@
 node {
     stage 'Build, Test and Package'
+    git clone https://github.com/cumaha/jmeter-test.git
     sh "mvn clean install -DskipTests"
     sh 'nohup mvn spring-boot:run -Dserver.port=8989 &'
     sh "while ! httping -qc1 http://192.168.10.13:8989 ; do sleep 1 ; done"           
